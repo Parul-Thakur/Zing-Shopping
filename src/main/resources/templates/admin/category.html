@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymleaf.org"
+  th:replace="~{base::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <section>
+      <div class="container-fluid p-5 mt-3">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card card-sh">
+              <div class="card-header text-center ">
+                <p class="fs-4"> Add Category</p>
+                
+                <th:block th:if="${session.success}">
+                  <p class="text-success fw-bold">[[${session.success}]]</p>
+                  <th:block th:text="${@commonServiceImpl.removeSessionStorage()}"></th:block>
+                </th:block>
+                <th:block th:if="${session.errorMessage}">
+                  <p class="text-danger fw-bold">[[${session.errorMessage}]]</p>
+                  <th:block th:text="${@commonServiceImpl.removeSessionStorage()}"></th:block>
+
+                </th:block>
+              </div>
+                <div class="card-body">
+                  <form action="/admin/saveCategory" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                      <label >Enter Category</label>
+                      <input type="text" class="form-control" name="name"/>
+                    </div>
+                    <div class="mb-3">
+                        <label >Status</label>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="isActive" id="flexRadioDefault1" checked value="true">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Active
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="isActive" id="flexRadioDefault2" value="false">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                             Inactive
+                            </label>
+                          </div>
+                    </div>
+                    <div class="mb-3">
+                      <label >Upload Image</label>
+                      <input type="file" class="form-control" name="file"/>
+                    </div>
+                    <button class="btn btn-dark col-md-12 mt-2">Save</button>
+                  </form>
+                </div>
+              </div>
+          
+          </div>
+          <div class="col-md-8">
+            <div class="card card-sh">
+              <div class="card-header text-center fs-4">Category Details</div>
+              <div class="card-body">
+                <div class="table">
+                  <table class="table ">
+                    <thead>
+                      <tr>
+                        <th scope="col">S.no.</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="cat, c:${categories}">
+                        <th scope="row">[[${c.count}]]</th>
+                        <td>[[${cat.name}]]</td>
+                        <td>[[${cat.isActive}]]</td>
+                        <td><img th:src="@{'/img/category/'+ ${cat.imageName}}" width="100px" height="80px"> </td>
+                        <td><a th:href="@{'/admin/editCategory/'+${cat.id}}" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-1x"></i>Edit </a>
+                            <a th:href="@{'/admin/deleteCategory/'+${cat.id}}" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-1x"></i>Delete</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

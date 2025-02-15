@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymleaf.org"
+  th:replace="~{base::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <section>
+      <!--------------------------------------------Start Slider------------------------------------------>
+      <div class="container p-5">
+        <p class="text-center fs-3 mt-2">Admin Dashboard</p>
+        <div class="row p-5 ">
+          <div class="col-md-4 mt-2">
+            <a href="/admin/add-product" class="text-decoration-none">
+            <div class="card card-sh">
+              <div class="card-body text-center text-primary">
+                <i class="fa-solid fa-square-plus fa-2x text-dark"></i>
+                <h5 class="text-dark">Add Product</h5>
+              </div>
+            </div> 
+              </a>
+          </div>
+          <div class="col-md-4 mt-2">
+            <a href="/admin/category" class="text-decoration-none">
+            <div class="card card-sh">
+              <div class="card-body text-center text-primary">
+                <i class="fa-solid fa-table fa-2x text-dark"></i>
+                <h5 class="text-dark">Add Category</h5>
+              </div>
+            </div> 
+              </a>
+          </div>
+          <div class="col-md-4 mt-2">
+            <a href="/admin/products" class="text-decoration-none">
+            <div class="card card-sh">
+              <div class="card-body text-center text-primary">
+                <i class="fa-solid fa-person-booth fa-2x text-dark"></i>
+                <h5 class="text-dark">View Product</h5>
+              </div>
+            </div> 
+              </a>
+          </div>
+          <div class="col-md-4 mt-4">
+            <a href="/admin/orders" class="text-decoration-none">
+            <div class="card card-sh">
+              <div class="card-body text-center text-primary">
+                <i class="fa-solid fa-boxes-packing fa-2x text-dark"></i>
+                <h5 class="text-dark">Orders</h5>
+              </div>
+            </div> 
+              </a>
+          </div>
+          <div class="col-md-4 mt-4">
+            <a href="/admin/users" class="text-decoration-none">
+            <div class="card card-sh">
+              <div class="card-body text-center text-primary">
+                <i class="fa-solid fa-users fa-2x text-dark"></i>
+                <h5 class="text-dark">Users</h5>
+              </div>
+            </div> 
+              </a>
+          </div>
+          <div class="col-md-4 mt-4">
+            <a href="#" class="text-decoration-none">
+            <div class="card card-sh">
+              <div class="card-body text-center text-primary">
+                <i class="fa-solid fa-user-tie fa-2x text-dark"></i>
+                <h5 class="text-dark">Add Admin</h5>
+              </div>
+            </div> 
+              </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
