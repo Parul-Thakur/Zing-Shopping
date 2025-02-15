@@ -78,7 +78,21 @@ This is a full-featured **E-Commerce Website** built using **Java Spring Boot** 
 2. Manage products and categories.
 3. View and track orders.
 4. Add or remove users.
+📸 Screenshots
 
+🏠 Home Page
+
+
+
+🛍️ Product Page
+
+
+
+🛒 Shopping Cart
+
+
+
+🔑 Admin Dashboard
 ## 🚀 Deployment
 You can deploy this project on:
 - **Heroku**
